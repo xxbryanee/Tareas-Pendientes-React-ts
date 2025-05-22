@@ -1,25 +1,23 @@
+import {Tarea} from './Tarea.tsx';
+
 type ListaTarea = {
     listaTareas: string[];
     borrarTarea: (index: number) => void;   
 
 }
 
-const ListaTareas = ({listaTareas, borrarTarea}:ListaTarea) => {
+export const ListaTareas = ({listaTareas, borrarTarea}:ListaTarea) => {
     return (
         <div className="taskList">
-            {listaTareas.map((task, index) => (
-
-
-                <div key={index} className="task">
-                    <p>{task}</p>
-                    <button onClick={() => borrarTarea(index.toString())}>Borrar</button>
-                </div>
+            { listaTareas.map((tarea, index) => (
+                        <Tarea key={index}
+                        tarea={tarea}
+                        borrarTarea={() => borrarTarea(index)}
+                        ></Tarea>
             )
             )}
-            
-
         </div>
-    );  
+    ) 
 }
-export default ListaTareas;
+
 

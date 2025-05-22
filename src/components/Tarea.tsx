@@ -1,14 +1,13 @@
 type Tarea = {
     tarea: string;
-    borrar: string;
-    borrarTarea: (index: string) => void;
+    borrarTarea: () => void;
 }
 
-export const Tarea = ({tarea, borrar, borrarTarea}: Tarea) => {
+export const Tarea = ({tarea, borrarTarea}: Tarea) => {
     return (
         <div className="task">
             <span>{tarea}</span>
-            <button onClick={() => borrarTarea(borrar)}>Borrar</button>
+            <button onClick={borrarTarea}>Borrar</button>
         </div>
     )
 }
